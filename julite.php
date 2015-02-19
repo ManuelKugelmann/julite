@@ -12,7 +12,7 @@ add_shortcode("productgenerator", "productgenerator_handler");
 
 
 /*
-[productgenerator id="lalala" angle="33" luxD1="185" minD="3" maxD="5"]
+[productgenerator id="lalala" angle="33" lux="185"  luxD="100" minD="300" maxD="500"]
 */
 
 
@@ -41,7 +41,7 @@ function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD) {
 
 
         <div id="{$id}_slider" class="vertical-slider" style="height:200px;"></div>
-        
+
         </br>
 
         For a beam angle of {$angle}°, the brightness at <span id="{$id}_value" class="slider_value">?</span> m is <span id="{$id}_lux" class="slider_lux">?</span> lux.
