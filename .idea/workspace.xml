@@ -28,8 +28,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="1224">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+              <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -38,9 +38,24 @@
       <file leaf-file-name="julite.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/julite.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.83361924" vertical-offset="1690" max-vertical-offset="2584">
-              <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.07132867" vertical-offset="561" max-vertical-offset="2414">
+              <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+              <folding>
+                <marker date="1424372654346" expanded="true" signature="786:1067" placeholder="..." />
+                <marker date="1424372654346" expanded="true" signature="849:862" placeholder="..." />
+                <marker date="1424372654346" expanded="true" signature="894:923" placeholder="..." />
+                <marker date="1424372654346" expanded="true" signature="894:1064" placeholder="..." />
+                <marker date="1424372654346" expanded="true" signature="1083:1833" placeholder="..." />
+                <marker date="1424372654346" expanded="true" signature="1093:1814" placeholder="/*...*/" />
+                <marker date="1424372654346" expanded="true" signature="1112:1629" placeholder="{...}" />
+                <marker date="1424372654346" expanded="true" signature="1112:1773" placeholder="{...}" />
+                <marker date="1424372654346" expanded="true" signature="1112:1780" placeholder="{...}" />
+                <marker date="1424372654346" expanded="true" signature="1112:1811" placeholder="{...}" />
+                <marker date="1424372654346" expanded="true" signature="1302:1369" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+                <marker date="1424372654346" expanded="true" signature="1302:1629" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+                <marker date="1424372654346" expanded="true" signature="1472:1578" placeholder="{...}" />
+                <marker date="1424372654346" expanded="true" signature="1472:1615" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,6 +66,14 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="true" />
     </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/julite.php" />
+      </list>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
@@ -85,6 +108,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -132,6 +156,84 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="led" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="julite - Copy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="led" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="julite - Copy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="led" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="julite - Copy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -241,7 +343,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -290,7 +391,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -299,9 +400,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2604384" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2604384" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32805908" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18881856" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -342,6 +443,68 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="221">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/julite.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2329">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1424372654346" expanded="true" signature="786:1067" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="849:862" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:923" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:1064" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1083:1833" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1093:1814" placeholder="/*...*/" />
+            <marker date="1424372654346" expanded="true" signature="1112:1629" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1773" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1780" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1811" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1369" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1629" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1578" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1615" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="255">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/julite.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1887">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1424372654346" expanded="true" signature="786:1067" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="849:862" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:923" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:1064" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1083:1833" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1093:1814" placeholder="/*...*/" />
+            <marker date="1424372654346" expanded="true" signature="1112:1629" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1773" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1780" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1811" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1369" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1629" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1578" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1615" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="1224">
           <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding />
@@ -352,7 +515,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2584">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1424372654346" expanded="true" signature="786:1067" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="849:862" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:923" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:1064" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1083:1833" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1093:1814" placeholder="/*...*/" />
+            <marker date="1424372654346" expanded="true" signature="1112:1629" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1773" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1780" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1811" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1369" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1629" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1578" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1615" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="1224">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/julite.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2584">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1424372654346" expanded="true" signature="786:1067" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="849:862" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:923" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:1064" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1083:1833" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1093:1814" placeholder="/*...*/" />
+            <marker date="1424372654346" expanded="true" signature="1112:1629" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1773" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1780" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1811" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1369" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1629" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1578" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1615" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -368,7 +577,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1424372654346" expanded="true" signature="786:1067" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="849:862" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:923" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:1064" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1083:1833" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1093:1814" placeholder="/*...*/" />
+            <marker date="1424372654346" expanded="true" signature="1112:1629" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1773" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1780" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1811" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1369" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1629" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1578" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1615" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -384,7 +608,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2584">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1424372654346" expanded="true" signature="786:1067" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="849:862" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:923" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:1064" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1083:1833" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1093:1814" placeholder="/*...*/" />
+            <marker date="1424372654346" expanded="true" signature="1112:1629" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1773" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1780" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1811" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1369" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1629" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1578" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1615" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -400,7 +639,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2584">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1424372654346" expanded="true" signature="786:1067" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="849:862" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:923" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:1064" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1083:1833" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1093:1814" placeholder="/*...*/" />
+            <marker date="1424372654346" expanded="true" signature="1112:1629" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1773" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1780" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1811" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1369" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1629" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1578" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1615" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -416,7 +670,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2584">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1424372654346" expanded="true" signature="786:1067" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="849:862" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:923" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:1064" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1083:1833" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1093:1814" placeholder="/*...*/" />
+            <marker date="1424372654346" expanded="true" signature="1112:1629" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1773" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1780" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1811" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1369" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1629" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1578" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1615" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -432,7 +701,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1424372654346" expanded="true" signature="786:1067" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="849:862" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:923" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:1064" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1083:1833" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1093:1814" placeholder="/*...*/" />
+            <marker date="1424372654346" expanded="true" signature="1112:1629" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1773" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1780" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1811" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1369" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1629" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1578" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1615" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -483,17 +767,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="1224">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/julite.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83361924" vertical-offset="1690" max-vertical-offset="2584">
-          <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.07132867" vertical-offset="561" max-vertical-offset="2414">
+          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+          <folding>
+            <marker date="1424372654346" expanded="true" signature="786:1067" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="849:862" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:923" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="894:1064" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1083:1833" placeholder="..." />
+            <marker date="1424372654346" expanded="true" signature="1093:1814" placeholder="/*...*/" />
+            <marker date="1424372654346" expanded="true" signature="1112:1629" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1773" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1780" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1112:1811" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1369" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1302:1629" placeholder="{&quot;orientation&quot;: &quot;vertical&quot;...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1578" placeholder="{...}" />
+            <marker date="1424372654346" expanded="true" signature="1472:1615" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

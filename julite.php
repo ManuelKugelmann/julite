@@ -12,80 +12,69 @@ add_shortcode("productgenerator", "productgenerator_handler");
 
 
 /*
-
-[productgenerator id = "lalala" title = "Lala la" A_deg = "33" A_label = "33°" A_lux= ]
-[productgenerator id = "lalala" title = "Lala la" options = "name={Foo} | name = {Bar}" ]
+[productgenerator id="lalala" angle="33" luxD1="185" minD="3" maxD="5"]
 */
 
 
 function productgenerator_handler($atts) {
 
   extract(shortcode_atts(array(
-      'blubb' => 1,
-   ), $atts));
+      'id' => "lalala",
+      'angle' => 33,
+      'lux' => 185,
+      'luxD' => 100,
+      'minD' => 300,
+      'maxD' => 500
+  ), $atts));
    
    
-  $output = productgenerator_function($blubb);
+  $output = productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD);
   
   return $output;
 }
 
-function productgenerator_function($blubb) {
-
-	/*
-	ob_start(); ?>
-	<fieldset id="pets" data-role="controlgroup">
-		<legend>Static Radio Buttons</legend>
-		<input type="radio" name="pets" id="pets-cat" value="cat" checked="checked" />	<label for="pets-cat">Cat</label>
-		<input type="radio" name="pets" id="pets-dog" value="dog" /> <label for="pets-dog">Dog</label>
-		<script> jQuery( function(){jQuery("#pets").buttonset();}); </script>
-	</fieldset>
-	<?php
-	return ob_get_clean();*/
-
-	class Option
-	{
-		public $value;
-		public $label;
-	}
-
-
-	$groupname = "angle";
-	$grouplabel = $blubb;
-
-	$options = array(
-		"33°" =>  array ( "label" => "33°") ,
-		"66°" => array ( "label" => "66°")
-	);
-
-	$checked = array_keys($options)[0];
-
-
+function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD) {
 
 	$output = "";
-
 	$output .= <<<HTML
-    <fieldset id="{$groupname}" data-role="controlgroup">
-    	<legend>{$grouplabel}</legend>
-HTML;
 
 
-    foreach( $options as $keyvalue => $data )
-    {
-	    $label = $data["label"];
-	    $id = $groupname . "-" . $keyvalue;
-	    $output .= <<<HTML
-		<input type="radio" name="{$groupname}" id="{$id}" value="{$keyvalue}" />	<label for="{$id}">{$label}</label>
-HTML;
-    }
 
-	$output .= <<<HTML
-		<script>
-		jQuery( function(){
-			finalizeRadioButtons("{$groupname}","{$checked}");
-		});
-		</script>
-	</fieldset>
+        <div id="{$id}_slider" class="vertical-slider" style="height:200px;"></div>
+        
+        </br>
+
+        For a beam angle of {$angle}°, the brightness at <span id="{$id}_value" class="slider_value">?</span> m is <span id="{$id}_lux" class="slider_lux">?</span> lux.
+
+
+
+         <script>
+          jQuery(function(){
+
+            var sliderObj = jQuery( "#{$id}_slider" );
+            var valueObj = jQuery( "#{$id}_value" );
+            var luxObj = jQuery( "#{$id}_lux" );
+
+            sliderObj.slider({
+              orientation: "vertical",
+              min: {$minD},
+              max: {$maxD},
+              value: {$minD},
+              slide: function( event, ui ) {
+                valueObj.text( (ui.value*0.01).toFixed(2) );
+                luxObj.text( luxAtD({$lux},{$luxD}, ui.value) );
+              }
+            });
+
+            var value = sliderObj.slider( "value" );
+
+            valueObj.text( (value*0.01).toFixed(2) );
+            luxObj.text( luxAtD({$lux},{$luxD}, value) );
+
+          });
+
+          </script>
+
 HTML;
 
 	return $output;
@@ -118,6 +107,7 @@ function adding_scripts() {
 	wp_enqueue_script('jquery-ui-core');
 	wp_enqueue_script('jquery-ui-widget');
 	wp_enqueue_script('jquery-ui-button');
+    wp_enqueue_script('jquery-ui-slider');
 
 	//wp_register_style('jquery-ui', "http://ajax.googleapis.com/ajax/libs/jqueryui/jquery-ui.js",array(), '1.10.4');
 	//wp_enqueue_script('jquery-ui');
