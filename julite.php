@@ -41,7 +41,7 @@ function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD) {
 
 
 
-        <div id="{$id}_slider" class="vertical-slider" style="height:200px;"></div>
+        <div id="{$id}_slider" class="vertical-slider"></div>
 
         </br>
 
