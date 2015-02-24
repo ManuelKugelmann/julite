@@ -6,6 +6,7 @@ Description: Product Generator
 Version: 0.1 BETA
 Author: Manuel Kugelmann
 Author URI: http://www.bitcraft.org
+GitHub Plugin URI: TheDraguun/julite
 */
 
 add_shortcode("productgenerator", "productgenerator_handler");
