@@ -4,7 +4,7 @@ Plugin Name: Julite Product Generator
 Plugin URI: http://www.julispace.com
 Description: Product Generator
 Version: 0.0.3
-Author: Manuel Kugelmann
+Author: Manuel and Jonas Kugelmann
 Author URI: http://www.bitcraft.org
 GitHub Plugin URI: TheDraguun/julite
 */
@@ -57,7 +57,7 @@ function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD) {
             var luxObj = jQuery( "#{$id}_lux" );
 
             sliderObj.slider({
-              orientation: "vertical",
+             // orientation: "vertical",
               min: {$minD},
               max: {$maxD},
               value: {$minD},
