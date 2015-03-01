@@ -41,41 +41,18 @@ function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD) {
 
 		<!-- [productgenerator id="{$id}"  angle="{$angle}" lux="{$lux} lux_d="{$luxD}" min_d="{$minD}" max_d="{$maxD}"] --!>
 		
-        <div id="{$id}_slider" class="vertical-slider"></div>
-
+        <div id="{$id}_slider" class="pg-slider"></div>
         </br>
 
-        For a beam angle of {$angle}°, the brightness at <span id="{$id}_value" class="slider_value">?</span> m is <span id="{$id}_lux" class="slider_lux">?</span> lux.
+        For a beam angle of {$angle}° at <span id="{$id}_value" class="slider_value">?</span> m the brightness is <span id="{$id}_lux" class="slider_lux">?</span> lux.
+		</br>
+		
+		<div id="{$id}_drawing" class="pg-drawing" style="height: 200px; width: 100%;"></div>
+		</br>
 
-
-
-         <script>
-          jQuery(function(){
-
-            var sliderObj = jQuery( "#{$id}_slider" );
-            var valueObj = jQuery( "#{$id}_value" );
-            var luxObj = jQuery( "#{$id}_lux" );
-
-            sliderObj.slider({
-             // orientation: "vertical",
-              min: {$minD},
-              max: {$maxD},
-              value: {$minD},
-              slide: function( event, ui ) {
-                valueObj.text( (ui.value*0.01).toFixed(2) );
-                luxObj.text( luxAtD({$lux},{$luxD}, ui.value) );
-              }
-            });
-
-            var value = sliderObj.slider( "value" );
-
-            valueObj.text( (value*0.01).toFixed(2) );
-            luxObj.text( luxAtD({$lux},{$luxD}, value) );
-
-          });
-
-          </script>
-
+        <script>jQuery(function(){pg_init("{$id}", {$angle}, {$lux}, {$luxD}, {$minD}, {$maxD});});</script>
+		
+		
 HTML;
 
 	return $output;
@@ -95,7 +72,7 @@ add_action( 'wp_enqueue_scripts', 'adding_important_scripts', 5 );
 
 
 function adding_important_styles() {
-	wp_register_style('normalize', plugins_url('/css/normalize.css', __FILE__), array(), '20141128');
+	wp_register_style('normalize', plugins_url('/css/normalize.css', __FILE__), array(), '20150301');
 	wp_enqueue_style('normalize');
 }
 
@@ -115,11 +92,14 @@ function adding_scripts() {
 
 	wp_register_script('mustache', plugins_url('/js/vendor/mustache-0.4.2.min.js', __FILE__), array(),'0.4.2');
 	wp_enqueue_script('mustache');
+	
+	wp_register_script('svg', plugins_url('/js/vendor/svg-1.0.1.min.js', __FILE__), array(),'1.0.1');
+	wp_enqueue_script('svg');
 
-	wp_register_script('main', plugins_url('/js/main.js', __FILE__), array('jquery', 'mustache'), '20141128', true);
+	wp_register_script('main', plugins_url('/js/main.js', __FILE__), array('jquery', 'mustache', 'svg'), '20150301', true);
 	wp_enqueue_script('main');
 
-	wp_register_script('plugins', plugins_url('/js/plugins.js', __FILE__), array('main'), '20141128', true);
+	wp_register_script('plugins', plugins_url('/js/plugins.js', __FILE__), array('main'), '20150301', true);
 	wp_enqueue_script('plugins');
 }
 
@@ -135,7 +115,7 @@ function adding_styles() {
 	wp_register_style('jquery-ui', "http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/ui-lightness/jquery-ui.min.css",array(), '1.10.4');
 	wp_enqueue_style('jquery-ui');
 
-	wp_register_style('main', plugins_url('/css/main.css', __FILE__), array(), '20141128');
+	wp_register_style('main', plugins_url('/css/main.css', __FILE__), array(), '20150301');
 	wp_enqueue_style('main');
 }
 
