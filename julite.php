@@ -39,7 +39,7 @@ function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD) {
 	$output = "";
 	$output .= <<<HTML
 
-		<!-- [productgenerator id="{$id}"  angle="{$angle}" lux="{$lux} luxd="{$luxD}" mind="{$minD}" maxd="{$maxD}"] --!>
+		<!-- [productgenerator id="{$id}"  angle="{$angle}" lux="{$lux} lux_d="{$luxD}" min_d="{$minD}" max_d="{$maxD}"] --!>
 		
         <div id="{$id}_slider" class="vertical-slider"></div>
 
