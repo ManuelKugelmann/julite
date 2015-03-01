@@ -52,8 +52,8 @@ function pg_draw(id, angle, lux, luxD, minD, maxD) {
 
 	/* make rectangle jump and change color on mouse over */
 	rect.mouseover(function() {
-		this.animate(1000, SVG.easing.elastic)
-			.move(400 * Math.random(), 400 * Math.random())
+		this.animate(1000)
+			.move(200 * Math.random(), 200 * Math.random())
 			.rotate(-45 + 90 * Math.random())
 			.fill({
 				r: ~~(Math.random() * 255)
@@ -62,7 +62,7 @@ function pg_draw(id, angle, lux, luxD, minD, maxD) {
 			})
 	})
 	
-	draw.text('svg.js')
+	draw.text('productgenerator')
 		.back()
 		.fill('#ccc')
 		.move('50%', '40%')
