@@ -3,7 +3,7 @@
 Plugin Name: Julite Product Generator
 Plugin URI: http://www.julispace.com
 Description: Product Generator
-Version: 0.0.3
+Version: 0.0.4
 Author: Manuel and Jonas Kugelmann
 Author URI: http://www.bitcraft.org
 GitHub Plugin URI: TheDraguun/julite
@@ -13,7 +13,7 @@ add_shortcode("productgenerator", "productgenerator_handler");
 
 
 /*
-[productgenerator id="lalala" angle="33" lux="185" luxd="100" mind="300" maxd="500"]
+[productgenerator id="lalala" angle="33" lux="185" lux_d="100" min_d="300" max_d="500"]
 */
 
 
@@ -23,13 +23,13 @@ function productgenerator_handler($atts) {
       'id' => "pg_".uniqid(),
       'angle' => 33,
       'lux' => 185,
-      'luxd' => 100,
-      'mind' => 300,
-      'maxd' => 500
+      'lux_d' => 100,
+      'min_d' => 300,
+      'max_d' => 500
   ), $atts));
    
    
-  $output = productgenerator_function($id, $angle, $lux, $luxd, $mind, $maxd);
+  $output = productgenerator_function($id, $angle, $lux, $lux_d, $min_d, $max_d);
   
   return $output;
 }
