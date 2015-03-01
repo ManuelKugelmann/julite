@@ -13,14 +13,14 @@ add_shortcode("productgenerator", "productgenerator_handler");
 
 
 /*
-[productgenerator id="lalala" angle="33" lux="185"  luxD="100" minD="300" maxD="500"]
+[productgenerator id="lalala" angle="33" lux="185" luxD="100" minD="300" maxD="500"]
 */
 
 
 function productgenerator_handler($atts) {
 
   extract(shortcode_atts(array(
-      'id' => "lalala",
+      'id' => "pg_".uniqid(),
       'angle' => 33,
       'lux' => 185,
       'luxD' => 100,
@@ -39,8 +39,8 @@ function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD) {
 	$output = "";
 	$output .= <<<HTML
 
-
-
+		<!-- [productgenerator id="{$id}"  angle="{$angle}" lux="{$lux} luxD="{$luxD}" minD="{$minD}" maxD="{$maxD}"] --!>
+		
         <div id="{$id}_slider" class="vertical-slider"></div>
 
         </br>
