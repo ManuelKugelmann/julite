@@ -31,6 +31,8 @@ function pg_init(id, angle, lux, luxD, minD, maxD) {
 	var value = sliderObj.slider( "value" );
 	pg_update(valueObj, luxObj, value, id, angle, lux, luxD, minD, maxD);
 
+	pg_draw(id, angle, lux, luxD, minD, maxD);
+	
 }
 		  
 function pg_update(valueObj, luxObj, value, id, angle, lux, luxD, minD, maxD) {
@@ -38,7 +40,7 @@ function pg_update(valueObj, luxObj, value, id, angle, lux, luxD, minD, maxD) {
 	valueObj.text( (value*0.01).toFixed(2) );
 	luxObj.text( luxAtD(lux,luxD, value) );
 
-	pg_draw(id, angle, lux, luxD, minD, maxD);
+	
 }
 
 
