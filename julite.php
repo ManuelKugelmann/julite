@@ -29,7 +29,7 @@ function productgenerator_handler($atts) {
   ), $atts));
    
    
-  $output = productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD);
+  $output = productgenerator_function($id, $angle, $lux, $luxd, $mind, $maxd);
   
   return $output;
 }
