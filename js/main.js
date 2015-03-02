@@ -14,33 +14,43 @@ function luxAtD(lux, luxD, D) {
 function pg_init(id, angle, lux, luxD, minD, maxD) {
 
 	var sliderObj = jQuery( "#"+id+"_slider" );
-	var valueObj = jQuery( "#"+id+"_value" );
-	var luxObj = jQuery( "#"+id+"_lux" );
+	
+	var sliderObjs = jQuery( ".pg_slider" );
+	var valueObjs = jQuery( ".pg_value" );
+	var luxObjs = jQuery( ".pg_lux" );
 
 	sliderObj.slider({
 	 // orientation: "vertical",
 	  min: minD,
 	  max: maxD,
 	  value: minD,
+	  
+	  change: function( event, ui ) {
+		  var value = ui.value;
+		  pg_update_text(valueObjs, luxObjs, value, id, angle, lux, luxD, minD, maxD);
+	  },
+	  
 	  slide: function( event, ui ) {
 		  var value = ui.value;
-		  pg_update(valueObj, luxObj, value, id, angle, lux, luxD, minD, maxD);
+		  pg_update_others(sliderObjs, value);
 	  }
+
 	});
 
 	var value = sliderObj.slider( "value" );
-	pg_update(valueObj, luxObj, value, id, angle, lux, luxD, minD, maxD);
+	pg_update_text(valueObjs, luxObjs, value, id, angle, lux, luxD, minD, maxD);
 
 	pg_draw(id, angle, lux, luxD, minD, maxD);
 	
 }
-		  
-function pg_update(valueObj, luxObj, value, id, angle, lux, luxD, minD, maxD) {
-
-	valueObj.text( (value*0.01).toFixed(2) );
-	luxObj.text( luxAtD(lux,luxD, value) );
-
 	
+function pg_update_text(valueObjs, luxObjs, value, id, angle, lux, luxD, minD, maxD) {
+	valueObjs.text( (value*0.01).toFixed(2) );
+	luxObjs.text( luxAtD(lux,luxD, value) );
+}
+	
+function pg_update_others(sliderObjs, value) {
+	sliderObjs.slider('value', value);
 }
 
 
