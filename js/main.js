@@ -32,44 +32,32 @@ function pg_init(id, angle, lux, luxD, minD, maxD) {
 	pg_update(valueObj, luxObj, value, id, angle, lux, luxD, minD, maxD);
 
 	pg_draw(id, angle, lux, luxD, minD, maxD);
-	
+
 }
-		  
+
 function pg_update(valueObj, luxObj, value, id, angle, lux, luxD, minD, maxD) {
 
 	valueObj.text( (value*0.01).toFixed(2) );
 	luxObj.text( luxAtD(lux,luxD, value) );
 
-	
 }
 
 
 function pg_draw(id, angle, lux, luxD, minD, maxD) {
 
-	var draw = SVG(id + '_drawing');
+	var canvas = SVG(id + '_drawing');
+  var beamHeight =50;
+  var beamInfo= getPointsForBeam(angle,beamHeight);
+  var beam = canvas.polygon(beamInfo.plot).move(100-beamInfo.width/2,0).fill('#666');
 
-	var rect = draw.rect(50,50).move(100,100).fill('#f09');
 
-	/* make rectangle jump and change color on mouse over */
-	rect.mouseover(function() {
-		this.animate(1000)
-			.move(200 * Math.random(), 200 * Math.random())
-			.rotate(-45 + 90 * Math.random())
-			.fill({
-				r: ~~(Math.random() * 255)
-			  , g: ~~(Math.random() * 255)
-			  , b: ~~(Math.random() * 255)
-			})
-	})
-	
-	draw.text('productgenerator')
-		.back()
-		.fill('#ccc')
-		.move('50%', '40%')
-		.font({
-			family: 'Source Sans Pro'
-		  , size: 18
-		  , anchor: 'middle'
-		});
 }
-	
+
+function getPointsForBeam(angle,height){
+  //convert to radians by multiplying with (Math.PI/180)
+  var beta = angle/2 * (Math.PI/180);
+  var a = height;
+  var b = Math.tan(beta) *a;
+  return {plot:[[0,0],[b,a],[-b,a]],width:b*2,height:a};
+
+}
