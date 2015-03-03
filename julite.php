@@ -41,13 +41,13 @@ function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD) {
 
 		<!-- [productgenerator id="{$id}"  angle="{$angle}" lux="{$lux} lux_d="{$luxD}" min_d="{$minD}" max_d="{$maxD}"] --!>
 		
-        <div id="{$id}_slider" class="pg-slider"></div>
+        <div id="{$id}_slider" class="pg_slider"></div>
         </br>
 
-        For a beam angle of {$angle}° at <span id="{$id}_value" class="slider_value">?</span> m the brightness is <span id="{$id}_lux" class="slider_lux">?</span> lux.
+        For a beam angle of {$angle}° at <span id="{$id}_value" class="pg_value">?</span> m the brightness is <span id="{$id}_lux" class="pg_lux">?</span> lux.
 		</br>
 		
-		<div id="{$id}_drawing" class="pg-drawing" style="height: 200px; width: 100%;"></div>
+		<div id="{$id}_drawing" class="pg_drawing" style="height: 200px; width: 100%;"></div>
 		</br>
 
         <script>jQuery(function(){pg_init("{$id}", {$angle}, {$lux}, {$luxD}, {$minD}, {$maxD});});</script>
