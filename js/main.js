@@ -61,7 +61,7 @@ function pg_draw(id, angle, lux, luxD, minD, maxD) {
   var beamHeight =50;
   var beamInfo= getPointsForBeam(angle,beamHeight);
   var beamGroup = canvas.group();
-  var beam = beamGroup.polygon(beamInfo.plot).fill('#666');
+  var beam = beamGroup.polygon(beamInfo.plot).fill(getColorFromTemperature(5700));
 
 
 
@@ -72,19 +72,19 @@ function getPointsForBeam(angle,height){
   var beta = angle/2 * (Math.PI/180);
   var a = height;
   var b = Math.tan(beta) *a;
-  return {plot:[[0,0],[b,a],[-b,a]],width:b*2,height:a,beamCenter:;
+  return {plot:[[0,0],[b,a],[-b,a]],width:b*2,height:a};
 
 }
 
 function getColorFromTemperature (tempKelvin){
-  tempKelvin = tempKelvi <1000 ? 1000 : tempKelvin;
-  tempKelvin = tempKelvi >40000 ? 40000 : tempKelvin;
+  tempKelvin = tempKelvin <1000 ? 1000 : tempKelvin;
+  tempKelvin = tempKelvin >40000 ? 40000 : tempKelvin;
   tempKelvin /=100
   var red=0;
   var green =0;
   var blue=0;
   var temperatureCalc =0;
-  if(tempKelvi <= 66){
+  if(tempKelvin <= 66){
     red =255;
   }else{
     temperatureCalc = tempKelvin -60;
@@ -94,8 +94,8 @@ function getColorFromTemperature (tempKelvin){
     red = red > 255 ? 255 : red;
   }
 
-  if(tempKelvi <= 66){
-    temperatureCalc =tempKelvi;
+  if(tempKelvin <= 66){
+    temperatureCalc =tempKelvin;
     temperatureCalc = 99.4708025861 * Math.log(temperatureCalc) - 161.1195681661;
     green =temperatureCalc;
 
@@ -112,7 +112,7 @@ function getColorFromTemperature (tempKelvin){
   }else if(tempKelvin <=19){
     blue =0;
   }else{
-    temperatureCalc = tmpKelvin - 10
+    temperatureCalc = tempKelvin - 10
     temperatureCalc = 138.5177312231 * Math.log(temperatureCalc) - 305.0447927307
 
     blue = temperatureCalc
@@ -120,5 +120,5 @@ function getColorFromTemperature (tempKelvin){
     blue = blue > 255 ? 255 : blue;
   }
 
-  return {r:red,g:green,b:blue};
+  return {r:Math.floor(red),g:Math.floor(green),b:Math.floor(blue)};
 }
