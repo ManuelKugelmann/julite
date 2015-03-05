@@ -57,13 +57,19 @@ function pg_update_others(sliderObjs, value) {
 
 function pg_draw(id, angle, lux, luxD, minD, maxD) {
 
+  var kelvin =3500;
 	var canvas = SVG(id + '_drawing');
-  var beamHeight =50;
+  var beamHeight =150;
   var beamInfo= getPointsForBeam(angle,beamHeight);
   var beamGroup = canvas.group();
-  var beam = beamGroup.polygon(beamInfo.plot).fill(getColorFromTemperature(5700));
+  var color = getColorFromTemperature(kelvin);
+  var beam = beamGroup.polygon(beamInfo.plot).fill(color).stroke(new SVG.Color(color).morph("#000").at(0.1));
+  var beamGroundHeight =30;
+  var beamGround = beamGroup.ellipse(beamInfo.width,beamGroundHeight)
+                            .move(-beamInfo.width/2 ,beamInfo.height -beamGroundHeight/2)
+                            .fill(new SVG.Color(color).morph("#fff").at(0.4));
 
-
+  beamGroup.move(100,0);
 
 }
 
@@ -88,7 +94,7 @@ function getColorFromTemperature (tempKelvin){
     red =255;
   }else{
     temperatureCalc = tempKelvin -60;
-    temperatureCalc =329.69872446 * (temperatureCalc ^ -0.1332047592 );
+    temperatureCalc =329.69872446 * Math.pow(temperatureCalc , -0.1332047592);
     red = temperatureCalc;
     red = red <0 ? 0 : red;
     red = red > 255 ? 255 : red;
@@ -101,7 +107,7 @@ function getColorFromTemperature (tempKelvin){
 
   }else{
     temperatureCalc = tempKelvin - 60;
-    temperatureCalc = 288.1221695283 * (temperatureCalc ^ -0.0755148492);
+    temperatureCalc = 288.1221695283 * Math.pow(temperatureCalc , -0.0755148492);
     green = temperatureCalc;
   }
   green = green <0 ? 0 : green;
