@@ -60,7 +60,9 @@ function pg_draw(id, angle, lux, luxD, minD, maxD) {
 	var canvas = SVG(id + '_drawing');
   var beamHeight =50;
   var beamInfo= getPointsForBeam(angle,beamHeight);
-  var beam = canvas.polygon(beamInfo.plot).move(100-beamInfo.width/2,0).fill('#666');
+  var beamGroup = canvas.group();
+  var beam = beamGroup.polygon(beamInfo.plot).fill('#666');
+
 
 
 }
@@ -70,6 +72,53 @@ function getPointsForBeam(angle,height){
   var beta = angle/2 * (Math.PI/180);
   var a = height;
   var b = Math.tan(beta) *a;
-  return {plot:[[0,0],[b,a],[-b,a]],width:b*2,height:a};
+  return {plot:[[0,0],[b,a],[-b,a]],width:b*2,height:a,beamCenter:;
 
+}
+
+function getColorFromTemperature (tempKelvin){
+  tempKelvin = tempKelvi <1000 ? 1000 : tempKelvin;
+  tempKelvin = tempKelvi >40000 ? 40000 : tempKelvin;
+  tempKelvin /=100
+  var red=0;
+  var green =0;
+  var blue=0;
+  var temperatureCalc =0;
+  if(tempKelvi <= 66){
+    red =255;
+  }else{
+    temperatureCalc = tempKelvin -60;
+    temperatureCalc =329.69872446 * (temperatureCalc ^ -0.1332047592 );
+    red = temperatureCalc;
+    red = red <0 ? 0 : red;
+    red = red > 255 ? 255 : red;
+  }
+
+  if(tempKelvi <= 66){
+    temperatureCalc =tempKelvi;
+    temperatureCalc = 99.4708025861 * Math.log(temperatureCalc) - 161.1195681661;
+    green =temperatureCalc;
+
+  }else{
+    temperatureCalc = tempKelvin - 60;
+    temperatureCalc = 288.1221695283 * (temperatureCalc ^ -0.0755148492);
+    green = temperatureCalc;
+  }
+  green = green <0 ? 0 : green;
+  green = green > 255 ? 255 : green;
+
+  if(tempKelvin >=66){
+    blue =255;
+  }else if(tempKelvin <=19){
+    blue =0;
+  }else{
+    temperatureCalc = tmpKelvin - 10
+    temperatureCalc = 138.5177312231 * Math.log(temperatureCalc) - 305.0447927307
+
+    blue = temperatureCalc
+    blue = blue <0 ? 0 : blue;
+    blue = blue > 255 ? 255 : blue;
+  }
+
+  return {r:red,g:green,b:blue};
 }
