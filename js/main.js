@@ -11,13 +11,15 @@ function luxAtD(lux, luxD, D) {
     return Math.round(f*f*lux);
 }
 
-function pg_init(id, angle, lux, luxD, minD, maxD) {
+function pg_init(id, angle, lux, luxD, minD, maxD, kelvin) {
 
 	var sliderObj = jQuery( "#"+id+"_slider" );
 
 	var sliderObjs = jQuery( ".pg_slider" );
 	var valueObjs = jQuery( ".pg_value" );
 	var luxObjs = jQuery( ".pg_lux" );
+	
+	var canvas = pg_draw(id, angle, lux, luxD, minD, maxD, kelvin);
 
 	sliderObj.slider({
 	 // orientation: "vertical",
@@ -28,6 +30,7 @@ function pg_init(id, angle, lux, luxD, minD, maxD) {
 	  change: function( event, ui ) {
 		  var value = ui.value;
 		  pg_update_text(valueObjs, luxObjs, value, id, angle, lux, luxD, minD, maxD);
+		  pg_update_draw(canvas, value, id, angle, lux, luxD, minD, maxD, kelvin);
 	  },
 
 	  slide: function( event, ui ) {
@@ -39,9 +42,7 @@ function pg_init(id, angle, lux, luxD, minD, maxD) {
 
 	var value = sliderObj.slider( "value" );
 	pg_update_text(valueObjs, luxObjs, value, id, angle, lux, luxD, minD, maxD);
-
-	pg_draw(id, angle, lux, luxD, minD, maxD);
-
+	pg_update_draw(canvas, value, id, angle, lux, luxD, minD, maxD, kelvin);
 }
 
 function pg_update_text(valueObjs, luxObjs, value, id, angle, lux, luxD, minD, maxD) {
@@ -51,14 +52,17 @@ function pg_update_text(valueObjs, luxObjs, value, id, angle, lux, luxD, minD, m
 
 function pg_update_others(sliderObjs, value) {
 	sliderObjs.slider('value', value);
+}
 
+function pg_update_draw(canvas, value, id, angle, lux, luxD, minD, maxD, kelvin) {
+
+	// hier änderungen am svg machen - statt nur dem canvas kannst du natürlich auch was anderes, z.b. ein array von elementen aus dem pg_draw zurückgeben
 }
 
 
-function pg_draw(id, angle, lux, luxD, minD, maxD) {
+function pg_draw(id, angle, lux, luxD, minD, maxD, kelvin) {
 
-  var kelvin =3500;
-	var canvas = SVG(id + '_drawing');
+  var canvas = SVG(id + '_drawing');
   var beamHeight =150;
   var beamInfo= getPointsForBeam(angle,beamHeight);
   var beamGroup = canvas.group();
@@ -70,6 +74,8 @@ function pg_draw(id, angle, lux, luxD, minD, maxD) {
                             .fill(new SVG.Color(color).morph("#fff").at(0.4));
 
   beamGroup.move(100,0);
+  
+  return canvas;
 
 }
 

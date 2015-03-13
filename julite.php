@@ -13,7 +13,7 @@ add_shortcode("productgenerator", "productgenerator_handler");
 
 
 /*
-[productgenerator id="lalala" angle="33" lux="185" lux_d="100" min_d="300" max_d="500"]
+[productgenerator id="lalala" angle="33" lux="185" lux_d="100" min_d="300" max_d="500" kelvin="3500"]
 */
 
 
@@ -25,21 +25,22 @@ function productgenerator_handler($atts) {
       'lux' => 185,
       'lux_d' => 100,
       'min_d' => 300,
-      'max_d' => 500
+      'max_d' => 500,
+	  'kelvin' => 3500
   ), $atts));
    
    
-  $output = productgenerator_function($id, $angle, $lux, $lux_d, $min_d, $max_d);
+  $output = productgenerator_function($id, $angle, $lux, $lux_d, $min_d, $max_d, $kelvin);
   
   return $output;
 }
 
-function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD) {
+function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD $kelvin) {
 
 	$output = "";
 	$output .= <<<HTML
 
-		<!-- [productgenerator id="{$id}"  angle="{$angle}" lux="{$lux} lux_d="{$luxD}" min_d="{$minD}" max_d="{$maxD}"] --!>
+		<!-- [productgenerator id="{$id}"  angle="{$angle}" lux="{$lux} lux_d="{$luxD}" min_d="{$minD}" max_d="{$maxD}" color="{$kelvin}"] --!>
 		
         <div id="{$id}_slider" class="pg_slider"></div>
         </br>
@@ -50,7 +51,7 @@ function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD) {
 		<div id="{$id}_drawing" class="pg_drawing" style="height: 200px; width: 100%;"></div>
 		</br>
 
-        <script>jQuery(function(){pg_init("{$id}", {$angle}, {$lux}, {$luxD}, {$minD}, {$maxD});});</script>
+        <script>jQuery(function(){pg_init("{$id}", {$angle}, {$lux}, {$luxD}, {$minD}, {$maxD}, {$kelvin});});</script>
 		
 		
 HTML;
