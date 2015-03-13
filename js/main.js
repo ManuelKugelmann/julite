@@ -22,7 +22,7 @@ function pg_init(id, angle, lux, luxD, minD, maxD, kelvin) {
 	var canvas = pg_draw(id, angle, lux, luxD, minD, maxD, kelvin);
 
 	sliderObj.slider({
-	 // orientation: "vertical",
+	  orientation: "vertical",
 	  min: minD,
 	  max: maxD,
 	  value: minD,
