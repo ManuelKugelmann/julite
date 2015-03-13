@@ -40,19 +40,19 @@ function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD, $kelv
 	$output = "";
 	$output .= <<<HTML
 
+	<div id="{$id}_pg" class="pg">
+	
 		<!-- [productgenerator id="{$id}"  angle="{$angle}" lux="{$lux} lux_d="{$luxD}" min_d="{$minD}" max_d="{$maxD}" color="{$kelvin}"] --!>
 		
         <div id="{$id}_slider" class="pg_slider"></div>
-        </br>
-
-        For a beam angle of {$angle}° at <span id="{$id}_value" class="pg_value">?</span> m the brightness is <span id="{$id}_lux" class="pg_lux">?</span> lux.
-		</br>
 		
-		<div id="{$id}_drawing" class="pg_drawing" style="height: 200px; width: 100%;"></div>
-		</br>
-
+		<div id="{$id}_drawing" class="pg_drawing"></div>
+		
+        <div class="pg_text"> For a beam angle of {$angle}° at <span id="{$id}_value" class="pg_value">?</span> m the brightness is <span id="{$id}_lux" class="pg_lux">?</span> lux.</div>
+		
         <script>jQuery(function(){pg_init("{$id}", {$angle}, {$lux}, {$luxD}, {$minD}, {$maxD}, {$kelvin});});</script>
 		
+	</div>
 		
 HTML;
 
