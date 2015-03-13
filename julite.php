@@ -35,7 +35,7 @@ function productgenerator_handler($atts) {
   return $output;
 }
 
-function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD $kelvin) {
+function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD, $kelvin) {
 
 	$output = "";
 	$output .= <<<HTML
