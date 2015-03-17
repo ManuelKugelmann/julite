@@ -11,48 +11,48 @@ function luxAtD(lux, luxD, D) {
     return Math.round(f*f*lux);
 }
 
+var pg_value = 50;
+
 function pg_init(id, angle, lux, luxD, minD, maxD, kelvin) {
 
 	var pgObj = jQuery( "#"+id+"_pg" );
-
 	var sliderObj = jQuery( "#"+id+"_slider" );
-
 	var sliderObjs = jQuery( ".pg_slider" );
-
+	
 	var canvas = pg_draw(id, angle, lux, luxD, minD, maxD, kelvin);
 
 	sliderObj.slider({
 	  orientation: "vertical",
 	  min: 0,
 	  max: 100,
-	  value: 50,
+	  value: pg_value,
 
+	  // executed on every slider after value change
 	  change: function( event, ui ) {
-		  var value = CalculateValue( ui.value, minD, maxD)
-		  pg_update_draw(canvas, value, id, angle, lux, luxD, minD, maxD, kelvin);
+		  pg_value = calculate_value( ui.value, minD, maxD)
+		  pg_update_draw(canvas, pg_value, id, angle, lux, luxD, minD, maxD, kelvin);
 	  },
 
+	  // only executed on the actively moved slider
 	  slide: function( event, ui ) {
-		  var value = CalculateValue( ui.value, minD, maxD)
-
-		  pg_update_draw(canvas, value, id, angle, lux, luxD, minD, maxD, kelvin);
-		  
-		  pg_update_others(sliderObjs, value);
+		  pg_value = calculate_value( ui.value, minD, maxD)
+		  pg_update_draw(canvas, pg_value, id, angle, lux, luxD, minD, maxD, kelvin);
+		  pg_update_others(sliderObjs, pg_value);
 	  }
 
 	});
 
 	pgObj.on('update', function () {
-		var value = CalculateValue(sliderObj.slider( "value" ), minD, maxD);
-		pg_update_draw(canvas, value, id, angle, lux, luxD, minD, maxD, kelvin);
-	})
+		//pg_value = calculate_value(sliderObj.slider( "value" ), minD, maxD);
+		pg_update_draw(canvas, pg_value, id, angle, lux, luxD, minD, maxD, kelvin);
+	});
 
-	pgObj.trigger('update')
+	pgObj.trigger('update');
 
 }
 
 
-function CalculateValue(value, minD, maxD) {
+function calculate_value(value, minD, maxD) {
 	return (100-value)*0.01*(maxD-minD) + minD;
 }
 
