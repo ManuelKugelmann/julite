@@ -41,15 +41,15 @@ function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD, $kelv
 	$output .= <<<HTML
 
 	<div id="{$id}_pg" class="pg">
-	
-		<!-- [productgenerator id="{$id}"  angle="{$angle}" lux="{$lux} lux_d="{$luxD}" min_d="{$minD}" max_d="{$maxD}" color="{$kelvin}"] --!>
-		
+
         <div id="{$id}_slider" class="pg_slider"></div>
 		
 		<div id="{$id}_drawing" class="pg_drawing"></div>
 		
-        <script>jQuery(function(){pg_init("{$id}", {$angle}, {$lux}, {$luxD}, {$minD}, {$maxD}, {$kelvin});});</script>
+		<div style="clear: both;"></div>
 		
+        <script>jQuery(function(){pg_init("{$id}", {$angle}, {$lux}, {$luxD}, {$minD}, {$maxD}, {$kelvin});});</script>
+	
 	</div>
 		
 HTML;
