@@ -11,7 +11,7 @@ function luxAtD(lux, luxD, D) {
     return Math.round(f*f*lux);
 }
 
-var pg_value = 50;
+var pg_value = 1;
 
 function pg_init(id, angle, lux, luxD, minD, maxD, kelvin) {
 
@@ -21,44 +21,57 @@ function pg_init(id, angle, lux, luxD, minD, maxD, kelvin) {
 	
 	var canvas = pg_draw(id, angle, lux, luxD, minD, maxD, kelvin);
 
+	var initial_slider_value = 50;
+	
+	pg_value = calculate_value(initial_slider_value, minD, maxD)
+	
 	sliderObj.slider({
 	  orientation: "vertical",
 	  min: 0,
 	  max: 100,
-	  value: pg_value,
+	  value: initial_slider_value,
 
-	  // executed on every slider after value change
+	  // executed on every slider after any value change
 	  change: function( event, ui ) {
-		  pg_value = calculate_value( ui.value, minD, maxD)
+		  var slider_value = ui.value;
+		  pg_value = calculate_value(slider_value, minD, maxD)
 		  pg_update_draw(canvas, pg_value, id, angle, lux, luxD, minD, maxD, kelvin);
 	  },
 
 	  // only executed on the actively moved slider
 	  slide: function( event, ui ) {
-		  pg_value = calculate_value( ui.value, minD, maxD)
+		  var slider_value = ui.value;
+		  pg_value = calculate_value(slider_value, minD, maxD)
 		  pg_update_draw(canvas, pg_value, id, angle, lux, luxD, minD, maxD, kelvin);
-		  pg_update_others(sliderObjs, pg_value);
+		  
+		  pg_update_others(sliderObjs, slider_value);
 	  }
 
 	});
 
 	pgObj.on('update', function () {
-		//pg_value = calculate_value(sliderObj.slider( "value" ), minD, maxD);
+		var slider_value = calculate_slider_value(pg_value, minD, maxD);
+		sliderObj.slider('value', slider_value);
 		pg_update_draw(canvas, pg_value, id, angle, lux, luxD, minD, maxD, kelvin);
 	});
 
-	pgObj.trigger('update');
+	sliderObj.trigger('update');
 
 }
 
 
-function calculate_value(value, minD, maxD) {
-	return (100-value)*0.01*(maxD-minD) + minD;
+
+function calculate_slider_value(value, minD, maxD) {
+	return 100-(((value-minD)/(maxD-minD))*100);
+}
+
+function calculate_value(slider_value, minD, maxD) {
+	return (100-slider_value)*0.01*(maxD-minD) + minD;
 }
 
 
-function pg_update_others(sliderObjs, value) {
-	sliderObjs.slider('value', value);
+function pg_update_others(sliderObjs, slider_value) {
+	sliderObjs.slider('value', slider_value);
 }
 
 
