@@ -28,10 +28,10 @@ function productgenerator_handler($atts) {
       'max_d' => 500,
 	  'kelvin' => 3500
   ), $atts));
-   
-   
+
+
   $output = productgenerator_function($id, $angle, $lux, $lux_d, $min_d, $max_d, $kelvin);
-  
+
   return $output;
 }
 
@@ -43,15 +43,18 @@ function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD, $kelv
 	<div id="{$id}_pg" class="pg">
 
         <div id="{$id}_slider" class="pg_slider"></div>
-		
+
 		<div id="{$id}_drawing" class="pg_drawing"></div>
-		
+    <div class="pg_input">
+      <input id="{$id}_input" type="number" max="{$maxD}" min="{$minD}"/></input>
+    </div>
+
 		<div style="clear: both;"></div>
-		
+
         <script>jQuery(function(){pg_init("{$id}", {$angle}, {$lux}, {$luxD}, {$minD}, {$maxD}, {$kelvin});});</script>
-	
+
 	</div>
-		
+
 HTML;
 
 	return $output;
@@ -91,7 +94,7 @@ function adding_scripts() {
 
 	wp_register_script('mustache', plugins_url('/js/vendor/mustache-0.4.2.min.js', __FILE__), array(),'0.4.2');
 	wp_enqueue_script('mustache');
-	
+
 	wp_register_script('svg', plugins_url('/js/vendor/svg-1.0.1.min.js', __FILE__), array(),'1.0.1');
 	wp_enqueue_script('svg');
 
