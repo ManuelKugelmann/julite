@@ -36,10 +36,10 @@ function pg_init(id, angle, lux, luxD, minD, maxD, kelvin) {
   //TODO fix slider wrong start pos
 	sliderObj.slider({
 	  orientation: "vertical",
-	  min: 10, //minimum measurable distance = 10 cm
-	  max: initial_roomHeight,
+	  min: 0, //minimum measurable distance = 10 cm
+	  max: initial_roomHeight-10,
 	  value: initial_slider_value,
-    step:10,
+    step:5,
 
 	  // executed on every slider after any value change
 	  change: function( event, ui ) {
