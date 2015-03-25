@@ -120,7 +120,7 @@ function pg_draw(id, angle, lux, luxD, minD, maxD, kelvin, roomHeight, infoHeigh
   var color = getColorFromTemperature(kelvin);
   var lineColor = "#fff";
   if(new SVG.Color(color).brightness()>0.82){
-      lineColor ='#666';
+      lineColor ='black';
   }
   // define beam
   var beamHeight = svgElement.height();
@@ -164,14 +164,20 @@ function pg_draw(id, angle, lux, luxD, minD, maxD, kelvin, roomHeight, infoHeigh
   //define lux infoText
   var infoGroup =beamGroup.group();
   var infoTextOffsetX =beamInfo.width/2 ;
-  var infoText =infoGroup.text( luxAtD(lux,luxD, infoHeight) + " lux at " + (infoHeight*0.01).toFixed(2)  + " m" ).fill({ color: '#fff' }) ;
-  infoText.move(infoTextOffsetX,-jQuery(infoText.node).height()/2);
-  infoGroup.line(0,0,infoTextOffsetX-5,0).stroke("#fff");
+  var infoText =infoGroup.text( luxAtD(lux,luxD, infoHeight) + " lux at " + (infoHeight*0.01).toFixed(2)  + " m" ).fill({ color: lineColor }) ;
+  var infoTextObj =jQuery(infoText.node);
+  infoText.move(infoTextOffsetX,-infoTextObj.height()/2);
+  infoGroup.rect(0,-infoTextObj.height()/2,infoTextObj.height()+4,infoTextObj.width()+4);//TODO may be move below text
+  infoGroup.line(0,0,infoTextOffsetX-5,0).stroke(lineColor);
 
   infoGroup.move(0, infoHeight*scaleFactor);
 
   beamGroup.move(svgElement.width()/2, beamGroundHeight*0.3);
 
+  var diameter = getPointsForBeam(angle,roomHeight).width;
+ //TODO add diameter text to beam
+ //TODO only rerender moving objects
+ //TODO rerender all on screensize change
   return canvas;
 
 }
