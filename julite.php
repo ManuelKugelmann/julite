@@ -24,18 +24,19 @@ function productgenerator_handler($atts) {
       'angle' => 33,
       'lux' => 185,
       'lux_d' => 100,
-      'min_d' => 300,
-      'max_d' => 500,
+      'min_d' => 10,
+      'max_d' => 300,
+	  'init_d' => 240,
 	  'kelvin' => 3500
   ), $atts));
 
 
-  $output = productgenerator_function($id, $angle, $lux, $lux_d, $min_d, $max_d, $kelvin);
+  $output = productgenerator_function($id, $angle, $lux, $lux_d, $min_d, $max_d, $init_d, $kelvin);
 
   return $output;
 }
 
-function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD, $kelvin) {
+function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD, $initD, $kelvin) {
 
 	$output = "";
 	$output .= <<<HTML
@@ -45,13 +46,14 @@ function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD, $kelv
         <div id="{$id}_slider" class="pg_slider"></div>
 
 		<div id="{$id}_drawing" class="pg_drawing"></div>
-    <div class="pg_input">
-      <input id="{$id}_input" type="number" max="{$maxD}" min="{$minD}"/></input>
-    </div>
+		
+		<div class="pg_input_block">
+		  <input id="{$id}_input" class="pg_input" type="number" max="{$maxD}" min="{$minD}"/></input>
+		</div>
 
 		<div style="clear: both;"></div>
 
-        <script>jQuery(function(){pg_init("{$id}", {$angle}, {$lux}, {$luxD}, {$minD}, {$maxD}, {$kelvin});});</script>
+        <script>jQuery(function(){pg_init("{$id}", parseInt({$angle}), parseInt({$lux}), parseInt({$luxD}), parseInt({$minD}), parseInt({$maxD}), parseInt({$initD}), parseInt({$kelvin}));});</script>
 
 	</div>
 

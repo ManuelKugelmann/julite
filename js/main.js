@@ -1,111 +1,136 @@
 jQuery(document).on("pageinit", function(event){
-
 	// custom code goes here
-
 });
-
-
 
 function luxAtD(lux, luxD, D) {
     var f = luxD/D;
     return Math.round(f*f*lux);
 }
 
-var pg_value = 240;
-var pg_roomHeight =240;
+var pg_roomHeight = 240;
+var pg_infoHeight = 240;
+
 // luxD = distance for lux value
 // minD = minimum room height
 // maxD = maximum room height
+// initD = initial room height
 // kelvin = color temperature in kelvin
 // every height value is in cm: 500 == 5 meters
-function pg_init(id, angle, lux, luxD, minD, maxD, kelvin) {
+function pg_init(id, angle, lux, luxD, minD, maxD, initD, kelvin) {
 
 	var pgObj = jQuery( "#"+id+"_pg" );
 	var sliderObj = jQuery( "#"+id+"_slider" );
 	var sliderObjs = jQuery( ".pg_slider" );
-  var roomHeightInputObj = jQuery('#'+id+'_input');
+	var roomHeightInputObj = jQuery('#'+id+'_input');
+	var roomHeightInputObjs = jQuery('.pg_input');
 
-	var initial_roomHeight = 240; //default roomHeight = 2,4m
-  var initial_slider_value = initial_roomHeight; // infoText should start at floor
+	var initial_roomHeight = initD;
+	var initial_infoHeight = initial_roomHeight; // infoText should start at floor
+	
+	pg_roomHeight = initial_roomHeight;
+	pg_infoHeight = initial_infoHeight;
+	
+	var canvas = pg_draw(id, angle, lux, luxD, minD, maxD, kelvin, initial_roomHeight, initial_infoHeight);
 
-
-  var canvas = pg_draw(id, angle, lux, luxD, minD, maxD, kelvin,initial_roomHeight,initial_slider_value);
-  pg_update_draw(canvas, initial_slider_value, id, angle, lux, luxD, minD, maxD, kelvin, initial_roomHeight);
-
-  //TODO fix slider not moving
-  //TODO fix slider wrong start pos
+	//DONE fix slider not moving  ->  happens when min, max and value are not valid type or range
+	//DONE fix slider wrong start pos ->  happens when min, max and value are not valid type or range
 	sliderObj.slider({
 	  orientation: "vertical",
 	  min: 0, //minimum measurable distance = 10 cm
 	  max: initial_roomHeight-10,
-	  value: initial_slider_value,
-    step:5,
+	  value: 0,
+      step:5,
 
 	  // executed on every slider after any value change
 	  change: function( event, ui ) {
-		  var slider_value = ui.value;
-      pg_value = calculate_value(slider_value, pg_roomHeight);
-		  pg_update_draw(canvas, pg_value, id, angle, lux, luxD, minD, maxD, kelvin, pg_roomHeight);
+		  var slider_value = parseInt(ui.value);
+          pg_infoHeight = calculate_infoHeight(slider_value, pg_roomHeight);
+		  pg_update_draw(id, angle, lux, luxD, minD, maxD, kelvin, pg_roomHeight, pg_infoHeight, canvas);
 	  },
 
 	  // only executed on the actively moved slider
 	  slide: function( event, ui ) {
-		  var slider_value = ui.value;
-		  pg_value = calculate_value(slider_value, pg_roomHeight);
-		  pg_update_draw(canvas, pg_value, id, angle, lux, luxD, minD, maxD, kelvin, pg_roomHeight);
-		  //pg_update_others(sliderObjs, slider_value);
+		  var slider_value = parseInt(ui.value);
+		  pg_infoHeight = calculate_infoHeight(slider_value, pg_roomHeight);
+		  pg_update_draw(id, angle, lux, luxD, minD, maxD, kelvin, pg_roomHeight, pg_infoHeight, canvas);
+		  pg_update_others(sliderObjs, roomHeightInputObjs, slider_value);	
 	  }
 
 	});
+	
+	
+	
+	//sets initial room height
+	roomHeightInputObj.val(initial_roomHeight);
+	
+		//TODO fix getting input form arrows on input field
+		roomHeightInputObj.on('input',function(){
+			var value = parseInt(roomHeightInputObj.val());
+			value = isNaN(value) ? initial_roomHeight : value;
+			value = value > maxD ? maxD : value;
+			value = value < minD ? minD : value;
+			pg_roomHeight = parseInt(value);
 
-  // what does it do?
+			// update slider on room height change
+			if (pg_infoHeight > pg_roomHeight) {
+				pg_infoHeight = pg_roomHeight;
+			}
+			
+			var slider_value = calculate_slider_value(pg_infoHeight, pg_roomHeight);
+            sliderObj.slider('value', slider_value)
+			sliderObj.slider( "option", "max", pg_roomHeight-10 );
+
+			pg_update_draw(id, angle, lux, luxD, minD, maxD, kelvin, pg_roomHeight, pg_infoHeight, canvas);
+			
+			pg_update_others(sliderObjs, roomHeightInputObjs, sliderObj.slider("value"));	
+		});
+
+		roomHeightInputObj.change(function(){		
+			roomHeightInputObj.val(pg_roomHeight);	
+			pg_update_draw(id, angle, lux, luxD, minD, maxD, kelvin, pg_roomHeight, pg_infoHeight, canvas);
+		})
+
+
+	// when the product variant is switched, the current values need to be transferred to the newly activated instance of the product generator
 	pgObj.on('update', function () {
-		pg_update_draw(canvas, pg_value, id, angle, lux, luxD, minD, maxD, kelvin, pg_roomHeight);
+	
+		// update slider at newly activated instance of the product generator
+	    var slider_value = calculate_slider_value(pg_infoHeight, pg_roomHeight);
+        sliderObj.slider('value', slider_value);
+		
+		// update roomheight at newly activated instance of the product generator
+		roomHeightInputObj.val(pg_roomHeight)
+		
+		pg_update_draw(id, angle, lux, luxD, minD, maxD, kelvin, pg_roomHeight, pg_infoHeight, canvas);
 	});
 
-  //sets initial room height
-  roomHeightInputObj.val(initial_roomHeight);
-  //TODO fix getting input form arrows on input field
-  roomHeightInputObj.on('input',function(){
-    var value= parseInt(roomHeightInputObj.val());
-    value =isNaN(value) ? initial_roomHeight :value;
-    value =value > maxD ? maxD :value;
-    value =value < minD ? minD :value;
-    pg_roomHeight=value;
-    sliderObj.slider( "option", "max", pg_roomHeight ); // update slider on room height change
-    if(pg_value > pg_roomHeight){
-      pg_update_others(sliderObj, pg_roomHeight );
-    }
-    pgObj.trigger('update');
-  });
-
-  roomHeightInputObj.change(function(){
-    roomHeightInputObj.val(pg_roomHeight);
-    pgObj.trigger('update');
-  })
+}
 
 
+function pg_update_others(sliderObjs, roomHeightInputObjs, slider_value) {
 
+	sliderObjs.slider('value', slider_value);
+	sliderObjs.slider( "option", "max", pg_roomHeight-10 );
+	roomHeightInputObjs.val(pg_roomHeight);
 }
 
 
 // invert inverted value  back
-function calculate_slider_value(value, roomHeight) {
-	return roomHeight -value;
+function calculate_slider_value(infoHeight, roomHeight) {
+	return roomHeight - infoHeight;
 }
+
+
 // inverting slider value
-function calculate_value(slider_value, roomHeight) {
-	return roomHeight -slider_value;
+function calculate_infoHeight(slider_value, roomHeight) {
+	return roomHeight  - slider_value;
 }
 
 
-function pg_update_others(sliderObjs, slider_value) {
-	sliderObjs.slider('value', slider_value);
-}
 
 
-function pg_update_draw(canvas, infoHeight, id, angle, lux, luxD, minD, maxD, kelvin, roomHeight) {
-  pg_draw(id, angle, lux, luxD, minD, maxD, kelvin, roomHeight, infoHeight, canvas);
+function pg_update_draw(id, angle, lux, luxD, minD, maxD, kelvin, roomHeight, infoHeight, canvas) {
+				pg_draw(id, angle, lux, luxD, minD, maxD, kelvin, roomHeight, infoHeight, canvas);
 }
 
 
@@ -167,7 +192,10 @@ function pg_draw(id, angle, lux, luxD, minD, maxD, kelvin, roomHeight, infoHeigh
   var infoText =infoGroup.text( luxAtD(lux,luxD, infoHeight) + " lux at " + (infoHeight*0.01).toFixed(2)  + " m" ).fill({ color: lineColor }) ;
   var infoTextObj =jQuery(infoText.node);
   infoText.move(infoTextOffsetX,-infoTextObj.height()/2);
-  infoGroup.rect(0,-infoTextObj.height()/2,infoTextObj.height()+4,infoTextObj.width()+4);//TODO may be move below text
+  
+  //TODO may be move below text
+  //infoGroup.rect(infoTextObj.height()+4,infoTextObj.width()+4);
+  //(0,-infoTextObj.height()/2); svgjs did not like negative height
   infoGroup.line(0,0,infoTextOffsetX-5,0).stroke(lineColor);
 
   infoGroup.move(0, infoHeight*scaleFactor);
