@@ -1,7 +1,8 @@
 
 .pg {
 	position: relative;
-	background-color: #666;
+	background-color: #242f38;
+	opacity: 90%;
 	height: 300px;
 }
 
@@ -23,9 +24,35 @@
 }
 
 .pg_drawing {
-	height: 100%; 
+	height: 100%;
 	width: 90%;
 	float: left;
 }
 
+.pg_line_color_light_bg{
+	stroke: #c3c3c3;
+}
 
+.pg_line_color_dark_bg{
+	stroke: #fff;
+}
+
+.pg_fill_color_light_bg{
+	fill: #c3c3c3;
+}
+
+.pg_fill_color_dark_bg{
+	fill: #fff;
+}
+
+.pg_height_ref{
+	stroke:#fff;
+	fill:#242f38;
+}
+.pg_text{
+	font-size:14px;
+
+}
+.pg_text_color{
+	color:white;
+}

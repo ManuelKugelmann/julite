@@ -46,9 +46,9 @@ function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD, $init
         <div id="{$id}_slider" class="pg_slider"></div>
 
 		<div id="{$id}_drawing" class="pg_drawing"></div>
-		
+
 		<div class="pg_input_block">
-		  <input id="{$id}_input" class="pg_input" type="number" max="{$maxD}" min="{$minD}"/></input>
+		  <input id="{$id}_input" class="pg_input" type="number" max="{$maxD}" min="{$minD}"/><span class="pg_text_color" > cm</span>
 		</div>
 
 		<div style="clear: both;"></div>
