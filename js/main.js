@@ -103,6 +103,10 @@ function pg_init(id, angle, lux, luxD, minD, maxD, initD, kelvin) {
 
 		pg_update_draw(id, angle, lux, luxD, minD, maxD, kelvin, pg_roomHeight, pg_infoHeight, canvas);
 	});
+  
+  jQuery(window).resize(function(){
+    pg_update_draw(id, angle, lux, luxD, minD, maxD, kelvin, pg_roomHeight, pg_infoHeight, canvas);
+  })
 
 }
 
