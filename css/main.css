@@ -45,10 +45,15 @@
 	fill: #fff;
 }
 
-.pg_height_ref{
-	stroke:#fff;
+.pg_height_ref_stroke{
+	fill:#fff;
+
+}
+
+.pg_height_ref_fill{
 	fill:#242f38;
 }
+
 .pg_text{
 	font-size:14px;
 
