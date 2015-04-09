@@ -188,7 +188,7 @@ var pg_init =(function(jQuery,SVG){
 
     var beamAngle= beamGroup.circle(100).center(0,0).addClass(lineColor+" pg_angle_circle").fill("transparent").maskWith(beamMask.fill("#fff"));
 
-    var angleText =beamGroup.text(angle+"˚").addClass("pg_text "+fillColor).move(40,10);
+    var angleText =beamGroup.text(angle+"˚").addClass("pg_text "+fillColor).move(-40,10);
 
 
     // define center line
