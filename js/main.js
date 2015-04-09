@@ -86,7 +86,7 @@ var pg_init =(function(jQuery,SVG){
 			pg_update_draw(id, angle, lux, luxD, minD, maxD, kelvin, pg_roomHeight, pg_infoHeight, canvas);
 
 			pg_update_others(sliderObjs, roomHeightInputObjs, sliderObj.slider("value"));
-		}); 	
+		});
 
   	// when the product variant is switched, the current values need to be transferred to the newly activated instance of the product generator
   	pgObj.on('update', function () {
@@ -181,7 +181,14 @@ var pg_init =(function(jQuery,SVG){
     resizeHeightRef(roomHeight,heightRefFill,realHeightRefHeight,beamHeight,scaleFactor);
     resizeHeightRef(roomHeight,heightRefStroke,realHeightRefHeight,beamHeight,scaleFactor);
 
-    var beam = beamGroup.polygon(beamInfo.plot).fill(canvas.gradient('linear',function(stop){stop.at(0.3,color);stop.at(1,color,0);}).from(0, 0).to(0, 1));
+    var beam = beamGroup.polygon(beamInfo.plot);
+    var beamMask = beam.clone();
+    beam.fill(canvas.gradient('linear',function(stop){stop.at(0.3,color);stop.at(1,color,0);}).from(0, 0).to(0, 1));
+
+    var beamAngle= beamGroup.circle(100).center(0,0).addClass(lineColor+" pg_angle_circle").fill("transparent").maskWith(beamMask.fill("#fff"));
+
+    var angleText =beamGroup.text(angle+"˚").addClass("pg_text "+fillColor).move(40,10);
+
 
     // define center line
     var heightLine = beamGroup.line(0,0,0,beamInfo.height).addClass(lineColor) ;
@@ -189,6 +196,7 @@ var pg_init =(function(jQuery,SVG){
       add.circle(5).center(4,10).addClass(fillColor);
       add.ellipse(6,18).center(4,10).stroke({width:1.5}).addClass(lineColor).fill("transparent");
       });
+
     heightLine.marker('end',5,5,function(add){add.circle(5).addClass(fillColor);});
 
     //define lux infoText
@@ -203,6 +211,9 @@ var pg_init =(function(jQuery,SVG){
     infoText.addClass("pg_text "+fillColor);
     var infoTextObj =jQuery(infoText.node);
     infoText.move(infoTextOffsetX,-infoTextObj.height()/2);
+    var b =infoText.bbox();
+    infoGroup.rect(b.width+10, b.height+10).
+        move(b.x-5, b.y-5).addClass("pg_text_bg").backward();
 
 
     infoGroup.line(0,0,infoTextOffsetX-5,0).addClass(lineColor);
@@ -210,8 +221,6 @@ var pg_init =(function(jQuery,SVG){
     infoGroup.move(0, infoHeight*scaleFactor);
 
     beamGroup.move(svgElement.width()/2, beamGroundHeight*0.4);
-
-
 
    //TODO only rerender moving objects
    //TODO rerender all on screensize change

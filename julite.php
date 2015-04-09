@@ -49,7 +49,7 @@ function productgenerator_function($id, $angle, $lux, $luxD, $minD, $maxD, $init
 		<div id="{$id}_drawing" class="pg_drawing"></div>
 
 		<div class="pg_input_block">
-		  <input id="{$id}_input" class="pg_input" type="number" max="{$maxD10}" min="{$minD10}" step="0.01"/><span class="pg_text_color" > m</span>
+      <span class="pg_text_color" > Roomheight</span> <input id="{$id}_input" class="pg_input" type="number" max="{$maxD10}" min="{$minD10}" step="0.01"/><span class="pg_text_color" > m</span>
 		</div>
 
 		<div style="clear: both;"></div>
