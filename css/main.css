@@ -12,7 +12,19 @@
 	margin-top: 3%;
 	margin-bottom: 2%;
 	margin-left: 1.5%;
+	padding-bottom: 3px;
 }
+
+.pg .pg_slider .ui-slider-handle {
+ z-index: 2;
+ width: 24px;
+ height: 24px;
+ top: auto !important;
+ left: 10px;
+ outline: none;
+}
+
+
 .pg_input_block {
 	position: absolute;
 	bottom: 5%;
