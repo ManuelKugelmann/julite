@@ -1,13 +1,5 @@
 
 
-.ui-slider.ui-slider-vertical .ui-slider-handle {
- width: 24px;
- height: 24px;
- top: auto !important;
- left: 10px;
- background-color: #FFFFFF;
-}
-
 .pg .ui-slider.ui-slider-vertical .ui-slider-handle:before {
  display: none;
 }
@@ -18,8 +10,8 @@
 
 
 .pg .pg_slider.ui-slider.ui-slider-vertical  .ui-slider-handle {
- width: 20px;
- height: 20px;
+ width: 16px;
+ height: 16px;
  top: auto !important;
  left: 12px;
 }

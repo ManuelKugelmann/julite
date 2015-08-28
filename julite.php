@@ -3,7 +3,7 @@
 Plugin Name: Julite Product Generator
 Plugin URI: http://www.julispace.com
 Description: Product Generator
-Version: 0.0.8
+Version: 0.0.9
 Author: Manuel and Jonas Kugelmann
 Author URI: http://www.bitcraft.org
 GitHub Plugin URI: TheDraguun/julite
@@ -104,11 +104,11 @@ function adding_scripts() {
 	wp_register_script('svg', plugins_url('/js/vendor/svg-1.0.1.min.js', __FILE__), array(),'1.0.1');
 	wp_enqueue_script('svg');
 
-	wp_register_script('main', plugins_url('/js/main.js', __FILE__), array('jquery', 'mustache', 'svg'), $plugin_version, true);
-	wp_enqueue_script('main');
+	wp_register_script('pg_main', plugins_url('/js/main.js', __FILE__), array('jquery', 'mustache', 'svg'), $plugin_version, true);
+	wp_enqueue_script('pg_main');
 
-	wp_register_script('plugins', plugins_url('/js/plugins.js', __FILE__), array('main'), $plugin_version, true);
-	wp_enqueue_script('plugins');
+	wp_register_script('pg_plugins', plugins_url('/js/plugins.js', __FILE__), array('main'), $plugin_version, true);
+	wp_enqueue_script('pg_plugins');
 }
 
 add_action( 'wp_enqueue_scripts', 'adding_scripts', 8 );
@@ -123,8 +123,8 @@ function adding_styles() {
 	wp_register_style('jquery-ui', "http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/ui-lightness/jquery-ui.min.css",array(), '1.10.4');
 	wp_enqueue_style('jquery-ui');
 
-	wp_register_style('main', plugins_url('/css/main.css', __FILE__), array(), '20150301');
-	wp_enqueue_style('main');
+	wp_register_style('pg_main', plugins_url('/css/main.css', __FILE__), array(), $plugin_version);
+	wp_enqueue_style('pg_main');
 }
 
 add_action( 'wp_enqueue_scripts', 'adding_styles',10);
