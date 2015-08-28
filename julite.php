@@ -3,7 +3,7 @@
 Plugin Name: Julite Product Generator
 Plugin URI: http://www.julispace.com
 Description: Product Generator
-Version: 0.0.6
+Version: 0.0.7
 Author: Manuel and Jonas Kugelmann
 Author URI: http://www.bitcraft.org
 GitHub Plugin URI: TheDraguun/julite
@@ -86,6 +86,9 @@ add_action( 'wp_enqueue_scripts', 'adding_important_styles', 5);
 
 function adding_scripts() {
 
+	$plugin_data = get_plugin_data(__FILE__);
+	$plugin_version = $plugin_data['Version'];
+
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('jquery-ui-core');
 	wp_enqueue_script('jquery-ui-widget');
@@ -101,10 +104,10 @@ function adding_scripts() {
 	wp_register_script('svg', plugins_url('/js/vendor/svg-1.0.1.min.js', __FILE__), array(),'1.0.1');
 	wp_enqueue_script('svg');
 
-	wp_register_script('main', plugins_url('/js/main.js', __FILE__), array('jquery', 'mustache', 'svg'), '0.0.6', true);
+	wp_register_script('main', plugins_url('/js/main.js', __FILE__), array('jquery', 'mustache', 'svg'), $plugin_version, true);
 	wp_enqueue_script('main');
 
-	wp_register_script('plugins', plugins_url('/js/plugins.js', __FILE__), array('main'), '0.0.6', true);
+	wp_register_script('plugins', plugins_url('/js/plugins.js', __FILE__), array('main'), $plugin_version, true);
 	wp_enqueue_script('plugins');
 }
 

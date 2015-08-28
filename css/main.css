@@ -17,7 +17,7 @@
 
 
 
-.ui-slider.ui-slider-vertical .ui-slider-handle {
+.pg .ui-slider.ui-slider-vertical .ui-slider-handle {
  z-index: 2;
  width: 16px;
  height: 16px;
@@ -26,7 +26,16 @@
  outline: none;
 }
 
-.pg .pg_slider .ui-slider-handle {
+.pg .ui-slider.ui-slider-vertical .ui-slider-handle:before {
+ display: none;
+}
+
+.pg .ui-slider.ui-slider-vertical .ui-slider-handle:after {
+ display: none;
+}
+
+
+.pg .pg_slider.ui-slider.ui-slider-vertical  .ui-slider-handle {
  z-index: 2;
  width: 24px;
  height: 24px;
