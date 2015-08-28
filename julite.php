@@ -3,7 +3,7 @@
 Plugin Name: Julite Product Generator
 Plugin URI: http://www.julispace.com
 Description: Product Generator
-Version: 0.0.4
+Version: 0.0.5
 Author: Manuel and Jonas Kugelmann
 Author URI: http://www.bitcraft.org
 GitHub Plugin URI: TheDraguun/julite
