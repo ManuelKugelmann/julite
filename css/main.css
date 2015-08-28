@@ -15,6 +15,17 @@
 	padding-bottom: 3px;
 }
 
+
+
+.ui-slider.ui-slider-vertical .ui-slider-handle {
+ z-index: 2;
+ width: 16px;
+ height: 16px;
+ top: auto !important;
+ left: 10px;
+ outline: none;
+}
+
 .pg .pg_slider .ui-slider-handle {
  z-index: 2;
  width: 24px;
