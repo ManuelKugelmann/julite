@@ -133,7 +133,7 @@ var pg_init =(function(jQuery,SVG){
   function pg_draw(id, angle, lux, luxD, minD, maxD, kelvin, roomHeight, infoHeight, canvas) {
 
     if(typeof canvas ==='undefined'|| canvas === null ){
-      canvas = SVG(id + '_drawing').fixSubPixelOffset();
+      canvas = SVG(id + '_drawing');//.fixSubPixelOffset();
     } else {
       canvas.clear();
     }
