@@ -101,7 +101,7 @@ function adding_scripts() {
 	wp_register_script('mustache', plugins_url('/js/vendor/mustache-0.4.2.min.js', __FILE__), array(),'0.4.2');
 	wp_enqueue_script('mustache');
 
-	wp_register_script('svg', plugins_url('/js/vendor/svg-1.0.1.min.js', __FILE__), array(),'1.0.1');
+	wp_register_script('svg', plugins_url('/js/vendor/svg-2.2.5.min.js', __FILE__), array(),'2.2.5');
 	wp_enqueue_script('svg');
 
 	wp_register_script('pg_main', plugins_url('/js/main.js', __FILE__), array('jquery', 'mustache', 'svg'), $plugin_version, true);
